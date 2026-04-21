@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>メール認証</title>
-    <link rel="stylesheet" href="{{ asset('css/verify-email.css') }}">
-</head>
-<body>
+@extends('layouts.app')
 
-<header class="header">
-    <img src="{{ asset('images/coachtech.png') }}" alt="COACHTECHロゴ" class="header__logo">
-</header>
+@section('title', 'メール認証')
 
-<main class="verify">
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/verify-email.css') }}">
+@endsection
+
+@section('content')
+<div class="verify">
     <div class="verify__container">
 
         <p class="verify__text">
@@ -24,7 +20,5 @@
         <a href="#" class="verify__resend">認証メールを再送する</a>
 
     </div>
-</main>
-
-</body>
-</html>
+</div>
+@endsection
