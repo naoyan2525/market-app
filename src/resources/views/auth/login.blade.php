@@ -11,7 +11,7 @@
     <div class="login__container">
         <h1 class="login__title">ログイン</h1>
 
-        <form action="/" method="POST" class="login-form">
+        <form action="/login" method="POST" class="login-form">
             @csrf
 
             <div class="login-form__group">
@@ -31,5 +31,3 @@
     </div>
 </div>
 @endsection
-</body>
-</html>
