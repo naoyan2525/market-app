@@ -3,32 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
-
 {
-    public function register() // 登録画面
+    public function register()
     {
         return view('auth.register');
     }
 
-    public function store() // 登録処理
+    public function store()
     {
         //
     }
 
-    public function login() // ログイン画面
+    public function login()
     {
         return view('auth.login');
     }
 
-    public function loginProcess() // ログイン処理
+    public function loginProcess()
     {
         //
     }
 
-    public function logout() // ログアウト
+    public function logout(Request $request)
     {
-        //
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
+
+    public function profile()
+    {
+        return view('auth.profile');
     }
 }

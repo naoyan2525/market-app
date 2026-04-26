@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #000;
+}
+
+/* ヘッダー */
+.header {
+    background: #000;
+    height: 56px;
+}
+
+.header__inner {
+    max-width: 1540px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.header__logo {
+    width: 200px;
+    display: block;
+}
+
+.header__search-form {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header__search-input {
+    width: 500px;
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.header__nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header__sell-button {
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+/* プロフィール */
+.profile {
+    max-width: 1100px;
+    margin: 70px auto 45px;
+    display: flex;
+    align-items: center;
+}
+
+.profile__image {
+    width: 150px;
+    height: 150px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    margin-left: 130px;
+}
+
+.profile__name {
+    margin-left: 90px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.profile__edit-button {
+    margin-left: auto;
+    margin-right: 70px;
+    padding: 12px 28px;
+    border: 2px solid #ff5555;
+    border-radius: 6px;
+    color: #ff5555;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* タブ */
+.tabs {
+    border-bottom: 1px solid #777;
+    padding-left: 130px;
+}
+
+.tabs__item {
+    display: inline-block;
+    padding: 18px 28px 12px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tabs__item--active {
+    color: #ff0000;
+}
+
+/* 商品一覧 */
+.item-list {
+    padding: 55px 55px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 55px 65px;
+}
+
+.item-card {
+    width: 100%;
+}
+
+.item-card__image,
+.item-card__dummy-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: #d9d9d9;
+    border-radius: 4px;
+}
+
+.item-card__dummy-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.item-card__name {
+    margin: 10px 0 0;
+    font-size: 16px;
+}

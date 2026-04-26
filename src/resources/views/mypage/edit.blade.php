@@ -22,12 +22,17 @@
                     value="{{ request('keyword') }}"
                 >
             </form>
+    <nav class="header__nav">
 
-            <nav class="header__nav">
-                <a href="/logout" class="header__nav-link">ログアウト</a>
-                <a href="/mypage" class="header__nav-link">マイページ</a>
-                <a href="/sell" class="header__sell-button">出品</a>
-            </nav>
+    <form action="/logout" method="POST" class="header__logout-form">
+        @csrf
+        <button type="submit" class="header__nav-link logout-btn">ログアウト</button>
+    </form>
+
+    <a href="/mypage" class="header__nav-link">マイページ</a>
+    <a href="/sell" class="header__sell-button">出品</a>
+    </nav>
+         
         </div>
     </header>
 
