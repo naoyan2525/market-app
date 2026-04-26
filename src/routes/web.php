@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\UserController;
 
 Route::get('/verify', function () {
     return view('auth.verify-email');
@@ -22,6 +24,9 @@ Route::post('/logout', function (Request $request) {
     return redirect('/login'); 
 });
 
-Route::get('/mypage', function () {
-    return view('mypage.profile');
-});
+Route::get('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'loginProcess']);
+
+Route::get('/mypage', [UserController::class, 'index']);
+
+Route::get('/', [ItemController::class, 'index']);

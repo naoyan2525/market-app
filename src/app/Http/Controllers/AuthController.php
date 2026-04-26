@@ -22,11 +22,21 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function loginProcess()
-    {
-        //
+    public function loginProcess(Request $request)
+{
+    $credentials = $request->only('email', 'password');
+
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+
+        return redirect('/');
     }
 
+    return back()->withErrors([
+        'email' => 'ログイン情報が登録されていません',
+    ])->withInput();
+}
+  
     public function logout(Request $request)
     {
         Auth::logout();
