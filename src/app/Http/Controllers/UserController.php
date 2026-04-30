@@ -20,5 +20,10 @@ class UserController extends Controller
         return view('mypage.edit');
     }
 
+    public function update(Request $request)
+    {
+        return redirect('/mypage');
+    }
+
 
 }

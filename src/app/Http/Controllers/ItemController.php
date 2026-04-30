@@ -16,4 +16,9 @@ class ItemController extends Controller
 
     return view('index', compact('items'));
     }
+
+    public function sell()
+    {
+        return view('sell');
+    }
 }
