@@ -33,7 +33,7 @@
     <section class="profile">
         <div class="profile__image"></div>
         <h1 class="profile__name">ユーザー名</h1>
-        <a href="/mypage/edit" class="profile__edit-button">プロフィールを編集</a>
+        <a href="/mypage/profile" class="profile__edit-button">プロフィールを編集</a>
     </section>
 
     <div class="tabs">
@@ -41,7 +41,7 @@
         <a href="/mypage?tab=buy" class="tabs__item">購入した商品</a>
     </div>
 
-    {{-- 出品商品がある場合だけ表示 --}}
+   
     @if (isset($items) && $items->count())
         <section class="item-list">
             @foreach ($items as $item)

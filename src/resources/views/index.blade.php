@@ -18,12 +18,19 @@
         </form>
 
         <nav class="header__nav">
-            <form action="/logout" method="POST">
-                @csrf
-                <button class="header__link">ログアウト</button>
-            </form>
+            @auth
+                <form action="/logout" method="POST">
+                    @csrf
+                    <button class="header__link">ログアウト</button>
+                </form>
+            @else
+                <a href="/login" class="header__link">ログイン</a>
+            @endauth
 
-            <a href="/mypage" class="header__link">マイページ</a>
+            <a href="{{ Auth::check() ? '/mypage' : '/login' }}" class="header__link">
+                マイページ
+            </a>
+
             <a href="/sell" class="header__button">出品</a>
         </nav>
     </div>
@@ -31,13 +38,11 @@
 
 <main class="item-page">
 
-   
     <div class="tabs">
         <a href="/" class="tab">おすすめ</a>
         <a href="#" class="tab active">マイリスト</a>
     </div>
 
-   
     <div class="item-list">
         @foreach ($items as $item)
             <div class="item-card">

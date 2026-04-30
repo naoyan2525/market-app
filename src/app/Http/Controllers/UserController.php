@@ -14,4 +14,11 @@ class UserController extends Controller
 
     return view('mypage.profile', compact('items'));
 }
+
+    public function profile()
+    {
+        return view('mypage.edit');
+    }
+
+
 }

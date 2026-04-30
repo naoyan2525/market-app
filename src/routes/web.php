@@ -7,26 +7,26 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 
+Route::get('/', [ItemController::class, 'index']);
+
 Route::get('/verify', function () {
     return view('auth.verify-email');
 });
 
-Route::get('edit', function () {
-    return view('mypage.edit');
-});
-
-Route::post('/logout', function (Request $request) {
-    Auth::logout();
-
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
-
-    return redirect('/login'); 
-});
-
-Route::get('/login', [AuthController::class, 'login']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'loginProcess']);
 
-Route::get('/mypage', [UserController::class, 'index']);
+Route::middleware('auth')->group(function () {
+    Route::get('/mypage', [UserController::class, 'index']);
 
-Route::get('/', [ItemController::class, 'index']);
+    Route::get('/mypage/profile', [UserController::class, 'profile']);
+
+    Route::post('/logout', function (Request $request) {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    });
+});
