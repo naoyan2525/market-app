@@ -44,12 +44,15 @@
     </div>
 
     <div class="item-list">
-        @foreach ($items as $item)
-            <div class="item-card">
-                <img src="{{ $item->image }}" class="item-image">
-                <p class="item-name">{{ $item->name }}</p>
-            </div>
-        @endforeach
+    @foreach ($items as $item)
+        <div class="item-card">
+            <a href="{{ route('item.show', $item->id) }}">
+                <img src="{{ $item->image }}" class="item-image" alt="{{ $item->name }}">
+            </a>
+
+            <p class="item-name">{{ $item->name }}</p>
+        </div>
+    @endforeach
     </div>
 
 </main>

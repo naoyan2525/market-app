@@ -21,4 +21,11 @@ class ItemController extends Controller
     {
         return view('sell');
     }
+
+    public function show(Item $item)
+    {
+        
+        return view('item-detail', compact('item'));
+    }
 }
+

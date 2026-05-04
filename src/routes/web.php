@@ -33,4 +33,11 @@ Route::middleware('auth')->group(function () {
 
         return redirect('/');
     });
+
+Route::get('/item/{item}', [ItemController::class, 'show'])->name('item.show');
+
+Route::post('/item/{item}/comment', [CommentController::class, 'store'])->name('comment.store');
+
+Route::get('/purchase/{item}', [PurchaseController::class, 'create'])->name('purchase.create');
+
 });
